@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "r2807NUjuF57G1O4xluM+dhs9VFEvO6olPme7gv9XX0=",
+  "Hash": "GtPPscNxCnaIPtrvZjJlcBpPAle+Q7UMUy/4+wuDuJs=",
   "Source": "MakeEvent",
   "BasePath": "_content/MakeEvent",
   "Mode": "Default",
@@ -1326,6 +1326,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "C:\\Users\\User\\Desktop\\Практикум ПИ\\Code\\MakeEvent\\MakeEvent\\wwwroot\\gear.svg",
+      "SourceId": "MakeEvent",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\Практикум ПИ\\Code\\MakeEvent\\MakeEvent\\wwwroot\\",
+      "BasePath": "_content/MakeEvent",
+      "RelativePath": "gear.svg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\gear.svg"
     },
     {
       "Identity": "C:\\Users\\User\\Desktop\\Практикум ПИ\\Code\\MakeEvent\\MakeEvent\\wwwroot\\js\\site.js",

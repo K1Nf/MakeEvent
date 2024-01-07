@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@model Event?
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -8,45 +9,46 @@
 <body>
     <div class="fon">
         <div class="event">
-            <h1>Ник автора, название мероприятия</h1>
+            <h1>Ник автора (@Model?.Id), @Model?.Name</h1>
             <table>
                 <tbody>
                     <tr>
                         <td class="table_left"><strong>Статус: </strong></td>
-                        <td class="table_right">Совершено</td>
+                        <td class="table_right">@Model?.Status</td>
                     </tr>
                     <tr>
                         <td class="table_left"><strong>Дата и время: </strong></td>
-                        <td class="table_right"> 15.12.2023 05:00</td>
+                        <td class="table_right"> @Model?.Date @Model?.Time</td>
                     </tr>
                     <tr>
                         <td class="table_left"><strong>Город: </strong></td>
-                        <td class="table_right">Лос-Хантос </td>
+                        <td class="table_right"> </td>
                     </tr>
                     <tr>
                         <td class="table_left"><strong>Место: </strong></td>
-                        <td class="table_right">Центральная площадь города на лавочке возле Гостиного двора!</td>
+                        <td class="table_right"> @Model?.Location</td>
                     </tr>
                     <tr>
                         <td class="table_left"><strong>Описание: </strong></td>
-                        <td class="table_right">Пить пиво с мужиками в 5 утра!</td>
+                        <td class="table_right"> @Model?.Description</td>
                     </tr>
                     <tr>
                         <td class="table_left"><strong>Тэги: </strong></td>
-                        <td class="table_right">Развлечение, культурное времяпровождение</td>
+                        <td class="table_right">@Model?.TagId</td>
                     </tr>
                     <tr>
                         <td class="table_left"><strong>Количество гостей: </strong></td>
-                        <td class="table_right">3</td>
+                        <td class="table_right">@Model?.Max_Ghost</td>
                     </tr>
                     <tr>
                         <td class="table_left"><strong>Гости: </strong></td>
-                        <td class="table_right">MIKITA, FullUm, Noobas, Nagibator228, GigachadEZ </td>
+                        <td class="table_right">me, him, you</td>
                     </tr>
                 </tbody>
             </table>
             <div class="mnge" id="meauthor">
-                <a class="btn">Отменить мероприятие</a>
+                <a asp-controller="Event" asp-action="Delete" class="btn">Отменить мероприятие</a>
+                <a asp-controller="Event" asp-action="Update" class="btn">Изменить мероприятие</a>
                 <a class="btn">Посмотреть гостей</a>
             </div>
 

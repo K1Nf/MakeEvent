@@ -25,6 +25,10 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "C:\\Users\\User\\Desktop\\Практикум ПИ\\Code\\MakeEvent\\MakeEvent\\wwwroot\\gear.svg",
+      "PackagePath": "staticwebassets\\gear.svg"
+    },
+    {
       "Id": "C:\\Users\\User\\Desktop\\Практикум ПИ\\Code\\MakeEvent\\MakeEvent\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },

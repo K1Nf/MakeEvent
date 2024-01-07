@@ -1,4 +1,5 @@
-﻿@{
+﻿@model List<Event>
+@{
     ViewData["Title"] = "Home Page";
 }
 
@@ -12,105 +13,46 @@
 <body>
     <div class="fon">
         <h2>Результаты поиска</h2>
+        
+        @{
+            foreach(var myevent in Model)
+            {
+                <div class="event" >
+                    <h1>@myevent.Name</h1>
+                    <div class="event_content">
+                        <div class="event_left">  @* /* @myevent.User.Image_link */ *@
+                            <img class="avatar" src="https://img.razrisyika.ru/kart/2/1200/4996-koshka-16.jpg" />
+                            <h2> @myevent.UserId K1Nf (10.00) </h2>
+                            @* <h2> ez @myevent.User?.Image_link </h2>*@
+                            <a class="register btn" asp-controller="Event" asp-action="EventPage" asp-route-ID="@myevent.Id">Подробнее о мероприятии</a>
+                        </div>
+                        <div class="event_right">
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <td class="table_left"><strong>Дата и время: </strong></td>
+                                        <td class="table_right">@myevent.Time @myevent.Date </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="table_left"><strong>Город: </strong></td>
+                                        <td class="table_right"></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="table_left"><strong>Место: </strong></td>
+                                        <td class="table_right">@myevent.Location</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="table_left"><strong>Описание: </strong></td>
+                                        <td class="table_right">@myevent.Description</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
 
-        <div class="event" >
-            <h1>Поход в тренажерный зал</h1>
-            <div class="event_content">
-                <div class="event_left">
-                    <img class="avatar" src="https://krasivosti.pro/uploads/posts/2023-07/1688412224_krasivosti-pro-p-yevropeiskaya-koshka-seraya-instagram-76.jpg" />
-                    <h2> K1Nf (10.00) </h2>
-                    <button class="register">Подробнее о мероприятии</button>
-                </div>
-                <div class="event_right">
-                    <table>
-                        <tbody>
-                            <tr>
-                                <td class="table_left"><strong>Дата и время: </strong></td>
-                                <td class="table_right"> 11.12.2023 <br /> 15:00</td>
-                            </tr>
-                            <tr>
-                                <td class="table_left"><strong>Город: </strong></td>
-                                <td class="table_right">Омск </td>
-                            </tr>
-                            <tr>
-                                <td class="table_left"><strong>Место: </strong></td>
-                                <td class="table_right">Онлайн</td>
-                            </tr>
-                            <tr>
-                                <td class="table_left"><strong>Описание: </strong></td>
-                                <td class="table_right">Идем в киберспорт. Идем в киберспорт. Идем в киберспорт</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-
-        <div class="event" style="margin-top: 10%">
-            <h1>Ищу чела для игр в Dota 2</h1>
-            <div class="event_content">
-                <div class="event_left">
-                    <img class="avatar" src="https://s0.rbk.ru/v6_top_pics/media/img/8/20/346957380091208.jpeg" />
-                    <h2> FullUM (9.98) </h2>
-                    <button class="register">Подробнее о мероприятии</button>
-                </div>
-                <div class="event_right">
-                    <table>
-                        <tbody>
-                            <tr>
-                                <td class="table_left"><strong>Дата и время: </strong></td>
-                                <td class="table_right"> 11.12.2023 <br /> 15:00</td>
-                            </tr>
-                            <tr>
-                                <td class="table_left"><strong>Город: </strong></td>
-                                <td class="table_right">Омск </td>
-                            </tr>
-                            <tr>
-                                <td class="table_left"><strong>Место: </strong></td>
-                                <td class="table_right">Онлайн</td>
-                            </tr>
-                            <tr>
-                                <td class="table_left"><strong>Описание: </strong></td>
-                                <td class="table_right" >Идем в киберспорт</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-
-        <div class="event" style="margin-top: 10%">
-            <h1>Поход в тренажерный зал</h1>
-            <div class="event_content">
-                <div class="event_left">
-                    <img class="avatar" src="https://www.funnyart.club/uploads/posts/2022-12/1671330390_www-funnyart-club-p-kartinki-shakala-krasivo-42.jpg" />
-                    <h2> Noobas (5.00) </h2>
-                    <button class="register">Подробнее о мероприятии</button>
-                </div>
-                <div class="event_right">
-                    <table>
-                        <tbody>
-                            <tr>
-                                <td class="table_left"><strong>Дата и время: </strong></td>
-                                <td class="table_right"> 12.12.2023 <br /> 19:00</td>
-                            </tr>
-                            <tr>
-                                <td class="table_left"><strong>Город: </strong></td>
-                                <td class="table_right">Ульяновск </td>
-                            </tr>
-                            <tr>
-                                <td class="table_left"><strong>Место: </strong></td>
-                                <td class="table_right">Качалочка</td>
-                            </tr>
-                            <tr>
-                                <td class="table_left"><strong>Описание: </strong></td>
-                                <td class="table_right">Идем в Man's physic</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
     </div>
 </body>
 </html>

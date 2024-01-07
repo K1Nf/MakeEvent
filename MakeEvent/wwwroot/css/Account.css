@@ -1,8 +1,8 @@
 ﻿body {
-    background-color: #315D66;
+    background-color: #315D66; /*green*/
 }
 .fon {
-    background-color: #D9D9D9;
+    background-color: #D9D9D9; /*white*/
     margin-left: 10%;
     margin-right: 10%;
     padding: 5%;
@@ -47,11 +47,9 @@
     border-radius: 50%;
     margin-top:3%;
 }
-/*.psswd{
-    text-align:left;
-    display: flex;
-}*/
-
+a:hover {
+    color: #D9D9D9 !important;
+}
 .profile_right {
     float: right;
     padding-left: 1%;
@@ -101,8 +99,13 @@
     background-color: #001048;
     color: whitesmoke;
 }
-
-
+.manage a {
+    background-color: #001048;
+    color: whitesmoke;
+}
+a:hover {
+    color: #D9D9D9 !important;
+}
 .story {
     background-color: #315D66;
     text-align: center;
@@ -140,4 +143,8 @@
 .myTable table a {
     background-color: #001048;
     color: whitesmoke;
+}
+
+label{
+    font-size:1.8vw;
 }

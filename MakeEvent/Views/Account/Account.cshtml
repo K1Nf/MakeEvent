@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@model User
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -7,53 +8,48 @@
 </head>
 <body>
     <div class="fon">
-        @* Load From DB *@
-        <h1 style="text-align: center">Репин Никита Геннадьевич**</h1>
+        <h1 style="text-align: center">@Model.Last_Name @Model.First_Name @Model.Middle_Name </h1>
         <div class="profile">
 
             <div class="profile_content">
                 <div class="profile_left">
-                    <img class="avatar" src="https://krasivosti.pro/uploads/posts/2023-07/1688412224_krasivosti-pro-p-yevropeiskaya-koshka-seraya-instagram-76.jpg" />
-                    <h2> MIKITA </h2>
+                    <img class="avatar" src="@Model.Image_link" />
+                    <h2> @Model.NickName (@Model.Rating)</h2>
 
                     <img class="loadbar" src="https://sun9-66.userapi.com/impg/SytIdr-mS1DakVdYNbNo29CeSe5hkZ3uEJR47g/BsS0ap22xsk.jpg?size=362x160&quality=96&sign=ad17e88364a390b8cac671459854221d&c_uniq_tag=Lp-PHlITX5el2BlawASHWuCGVIkeoboOpPPkMSE8JOQ&type=album" />
-                    <h2> Репутация </h2>
+                    <h2> Рейтинг </h2>
                     <div class="manage">
                         <button>Поменять пароль </button>
-                        <button>Редактировать профиль </button>
+                        <a asp-controller="Account" asp-action="Edit" asp-route-Id="@Model.Id" class="btn">Редактировать профиль </a>
                     </div>
-                    @* <div class="rating">
-                        <button>Оценить пользователя </button>
-                        <input type="number" min="0" max="10"/>
-                    </div> *@
                 </div>
                 
                 <div class="profile_right">
                     <table>
                         <tbody>
                             <tr>
-                                <td class="table_left"><strong>Телефон**: </strong></td>
-                                <td class="table_right">89527186362</td>
+                                <td class="table_left"><strong>Телефон: </strong></td>
+                                <td class="table_right">@Model.PhoneNumber</td>
                             </tr>
                             <tr>
-                                <td class="table_left"><strong>Эл. почта**: </strong></td>
-                                <td class="table_right">nikitka.repin.2017@mail.ru</td>
+                                <td class="table_left"><strong>Эл. почта: </strong></td>
+                                <td class="table_right">@Model.Email</td>
                             </tr>
                             <tr>
-                                <td class="table_left"><strong>ИНН****: </strong></td>
-                                <td class="table_right">0987654321</td>
+                                <td class="table_left"><strong>ИНН: </strong></td>
+                                <td class="table_right">@Model.INN</td>
                             </tr>
                             <tr style="padding-bottom: 1em;">
                                 <td class="table_left"><strong>Город: </strong></td>
-                                <td class="table_right">г. Ханты-Мансийск</td>
+                                <td class="table_right">@Model.City</td>
                             </tr>
                             <tr style="padding-bottom: 4vw;">
                                 <td class="table_left"><strong>О себе: </strong></td>
-                                <td class="table_right">Люблю пить пиво в ванной с мужиками в 5 утра!</td>
+                                <td class="table_right">@Model.Information</td>
                             </tr>
                             <tr style="padding-bottom: 20%;">
                                 <td class="table_left"><strong>Интересы: </strong></td>
-                                <td class="table_right">Тренажерный зал, хоккей, котики, программирование (тэги из БД)</td>
+                                <td class="table_right">@Model.TagId (тэги из БД)</td>
                             </tr>
                         </tbody>
                     </table>
@@ -64,7 +60,7 @@
         
         <div class="story">
             <div class="addAndshow">
-                <button>Доабвить мероприятие</button>
+                <a asp-controller="Event" asp-action="Create" class="btn">Создать мероприятие</a>
                 <button>Посмотреть историю моих мероприятий</button>
             </div>
             <div class="myTable">
@@ -83,23 +79,7 @@
                             <td>31.12.2023 23:59</td>
                             <td>Отметить НГ, жоска наесться, послушать Путина и лечь спать.</td>
                             <td>
-                                <a asp-controller="Event" asp-action="EventPage" class="btn">Подробнее</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Совершено</td>
-                            <td>08.12.2023 05:00</td>
-                            <td>Сходить в тренажерный зал и стать жоским гигачадом под нереальную мотивирующую музыку</td>
-                            <td>
-                                <a asp-controller="Event" asp-action="EventPage" class="btn">Подробнее</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Совершено</td>
-                            <td>07.12.2023 11:05</td>
-                            <td>Получить зачет по физкультуре и отметить это баночкой пива из КБ за 40 рублей</td>
-                            <td>
-                                <a asp-controller="Event" asp-action="EventPage" class="btn">Подробнее</a>
+                                <a asp-controller="Event" asp-action="EventPage" asp-route-Id="Id" class="btn">Подробнее</a>
                             </td>
                         </tr>
                     </tbody>
@@ -123,9 +103,9 @@
                         <tr>
                             <td>Запланировано</td>
                             <td>31.12.2023 23:59</td>
-                            <td>Отметить НГ, жоска наесться, послушать Путина и лечь спать.</td>
+                            <td>Отметить НГ, послушать Путина и лечь спать.</td>
                             <td>
-                                <a asp-controller="Event" asp-action="EventPage" asp-route-Id="ID" class="btn">Подробнее</a>
+                                <a asp-controller="Event" asp-action="EventPage" asp-route-Id="Id" class="btn">Подробнее</a>
                             </td>
                         </tr>
                     </tbody>
