@@ -117,6 +117,14 @@ a:hover {
     display: flex;
     justify-content: space-around;
 }
+.addAndshow a {
+    background-color: #001048;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    width: 25vw;
+    height: auto;
+    color: whitesmoke;
+}
 .addAndshow button{
     background-color: #001048;
     padding-top:1%;

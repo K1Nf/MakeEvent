@@ -1,6 +1,8 @@
 ﻿using MakeEvent.Context;
 using MakeEvent.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
+using System.Runtime.Intrinsics.X86;
 
 namespace MakeEvent.Controllers
 {
@@ -29,21 +31,30 @@ namespace MakeEvent.Controllers
             return View(FindUser(1));
         }
 
-        private User? FindUser(int? Id)
-        {
-            return _context.users.Find(Id);
-        }
 
         [HttpPost]
         public IActionResult Edit(User _user)
         {
+            foreach (char c in _user.PhoneNumber)
+            {
+                if (!char.IsDigit(c))
+                    ModelState.AddModelError("PhoneNumber", "Введите настоящий номер телефона"); 
+            }
+           
+        
             if(ModelState.IsValid)
             {
                 _context.users.Update(_user);
                 _context.SaveChangesAsync();
+                // Уведомление об успешном изменении данных аккаунта
                 return RedirectToAction("Account");
             }
-            return View();
+            return View(_user);
+        }
+
+        private User? FindUser(int? Id)
+        {
+            return _context.users.Find(Id);
         }
     }
 }

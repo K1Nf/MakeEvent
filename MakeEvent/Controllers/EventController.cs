@@ -37,6 +37,36 @@ namespace MakeEvent.Controllers
             return View();
         }
 
+        [HttpPost]
+        public IActionResult Create(Event _event)
+        {
+            _context.events.Add(_event);
+            _context.SaveChanges();
+            return View();
+        }
+
+
+        [HttpPost]
+        public IActionResult Update(Event _event)
+        {
+            if (ModelState.IsValid)
+            {
+                _context.events.Update(_event);
+                _context.SaveChangesAsync();
+                // Уведомление об успешном изменении данных аккаунта
+                return RedirectToAction("Account", "Account");
+            }
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Delete(Event _event)
+        {
+            _context.events.Remove(_event);
+            _context.SaveChanges();
+            return View();
+        }
+
         private Event? FindElem(int? Id)
         {
             return _context.events.Find(Id);
