@@ -21,8 +21,8 @@
                     <h1>@myevent.Name</h1>
                     <div class="event_content">
                         <div class="event_left">  @* /* @myevent.User.Image_link */ *@
-                            <img class="avatar" src="https://img.razrisyika.ru/kart/2/1200/4996-koshka-16.jpg" />
-                            <h2> @myevent.UserId K1Nf (10.00) </h2>
+                            <img class="avatar" src="@myevent.User.Image_link" />
+                            <h2> @myevent.User.NickName (@myevent.User.Rating) </h2>
                             @* <h2> ez @myevent.User?.Image_link </h2>*@
                             <a class="register btn" asp-controller="Event" asp-action="EventPage" asp-route-Id="@myevent.Id">Подробнее о мероприятии</a>
                         </div>
@@ -35,7 +35,7 @@
                                     </tr>
                                     <tr>
                                         <td class="table_left"><strong>Город: </strong></td>
-                                        <td class="table_right"></td>
+                                        <td class="table_right"> @myevent.User.City</td>
                                     </tr>
                                     <tr>
                                         <td class="table_left"><strong>Место: </strong></td>

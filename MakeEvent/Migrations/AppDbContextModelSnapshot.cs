@@ -34,6 +34,7 @@ namespace MakeEvent.Migrations
                         .HasColumnType("date");
 
                     b.Property<string>("Description")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("Dop_Information")
@@ -218,6 +219,7 @@ namespace MakeEvent.Migrations
                         .HasColumnType("text");
 
                     b.Property<string>("Information")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("Last_Name")

@@ -21,7 +21,7 @@ namespace MakeEvent.Models
         [Display(Name = "Организатор мероприятия")]
         public int UserId { get; set; }
         [ForeignKey("UserId")]
-        public User? User { get; set; }
+        public User User { get; set; }
 
 
         [Required(ErrorMessage = "Укажите место проведения мероприятия")]
@@ -48,7 +48,7 @@ namespace MakeEvent.Models
         [Display(Name = "Тэги")]
         public int TagId { get; set; }
         [ForeignKey("TagId")]
-        public Tag? Tags { get; set; }
+        public Tag Tags { get; set; }
 
 
         [Required]

@@ -35,18 +35,15 @@ namespace MakeEvent.Controllers
         [HttpPost]
         public IActionResult Edit(User _user)
         {
-            foreach (char c in _user.PhoneNumber)
-            {
-                if (!char.IsDigit(c))
-                    ModelState.AddModelError("PhoneNumber", "Введите настоящий номер телефона"); 
-            }
-           
-        
             if(ModelState.IsValid)
             {
                 _context.users.Update(_user);
                 _context.SaveChangesAsync();
+
+
                 // Уведомление об успешном изменении данных аккаунта
+
+
                 return RedirectToAction("Account");
             }
             return View(_user);

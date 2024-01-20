@@ -1,4 +1,4 @@
-﻿@model Event?
+﻿@model Event
 
 @{
     ViewData["Title"] = "Страница мероприятия";
@@ -13,36 +13,36 @@
 <body>
     <div class="fon">
         <div class="event">
-            <h1>Ник автора (@Model?.Id), @Model?.Name</h1>
+            <h1 style="color: white"> @Model.User.NickName - @Model.Name</h1>
             <table>
                 <tbody>
                     <tr>
                         <td class="table_left"><strong>Статус: </strong></td>
-                        <td class="table_right">@Model?.Status</td>
+                        <td class="table_right">@Model.Status</td>
                     </tr>
                     <tr>
                         <td class="table_left"><strong>Дата и время: </strong></td>
-                        <td class="table_right"> @Model?.Date @Model?.Time</td>
+                        <td class="table_right"> @Model.Date @Model.Time</td>
                     </tr>
                     <tr>
                         <td class="table_left"><strong>Город: </strong></td>
-                        <td class="table_right"> </td>
+                        <td class="table_right">@Model.User.City</td>
                     </tr>
                     <tr>
                         <td class="table_left"><strong>Место: </strong></td>
-                        <td class="table_right"> @Model?.Location</td>
+                        <td class="table_right"> @Model.Location</td>
                     </tr>
                     <tr>
                         <td class="table_left"><strong>Описание: </strong></td>
-                        <td class="table_right"> @Model?.Description</td>
+                        <td class="table_right"> @Model.Description</td>
                     </tr>
                     <tr>
                         <td class="table_left"><strong>Тэги: </strong></td>
-                        <td class="table_right">@Model?.TagId</td>
+                        <td class="table_right">@Model.Tags.Name</td>
                     </tr>
                     <tr>
                         <td class="table_left"><strong>Количество гостей: </strong></td>
-                        <td class="table_right">@Model?.Max_Ghost</td>
+                        <td class="table_right">@Model.Max_Ghost</td>
                     </tr>
                     <tr>
                         <td class="table_left"><strong>Гости: </strong></td>

@@ -2,6 +2,8 @@
 using MakeEvent.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using NuGet.Protocol;
+using System.Linq;
 
 namespace MakeEvent.Controllers
 {
@@ -66,10 +68,11 @@ namespace MakeEvent.Controllers
             _context.SaveChanges();
             return View();
         }
-
+        //_context.events.Include.ToList();
         private Event? FindElem(int? Id)
         {
-            return _context.events.Find(Id);
+            Event? ev = _context.events.Include(eve => eve.User).Include(eve => eve.Tags).FirstOrDefault(u => u.UserId == Id);
+            return ev;
         }
     }
 }

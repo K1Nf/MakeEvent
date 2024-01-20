@@ -1,6 +1,7 @@
 using MakeEvent.Context;
 using MakeEvent.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
 
 namespace MakeEvent.Controllers
@@ -18,7 +19,8 @@ namespace MakeEvent.Controllers
 
         public IActionResult Index()
         {
-            List<Event> events = _context.events.ToList();
+            List<Event> events = _context.events.Include(e => e.User).ToList();
+            
             return View(events);
         }
 
