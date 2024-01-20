@@ -16,7 +16,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MakeEvent")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e08778d44eed93d2184a74c79eb68d0c2349ae9c")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0978193dc6e5b21434c95e00cfc122f9132a68b2")]
 [assembly: System.Reflection.AssemblyProductAttribute("MakeEvent")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MakeEvent")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -71,7 +71,7 @@ namespace MakeEvent.Controllers
         //_context.events.Include.ToList();
         private Event? FindElem(int? Id)
         {
-            Event? ev = _context.events.Include(eve => eve.User).Include(eve => eve.Tags).FirstOrDefault(u => u.UserId == Id);
+            Event? ev = _context.events.Include(eve => eve.User).Include(eve => eve.Tags).FirstOrDefault(u => u.Id == Id);
             return ev;
         }
     }
