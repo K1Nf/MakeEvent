@@ -2,6 +2,7 @@
 using MakeEvent.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
+using Microsoft.EntityFrameworkCore;
 using System.Runtime.Intrinsics.X86;
 
 namespace MakeEvent.Controllers
@@ -51,7 +52,7 @@ namespace MakeEvent.Controllers
 
         private User? FindUser(int? Id)
         {
-            return _context.users.Find(Id);
+            return _context.users.Include(u => u.Tag).FirstOrDefault(u => u.Id == Id);
         }
     }
 }
