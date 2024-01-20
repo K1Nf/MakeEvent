@@ -1,0 +1,80 @@
+﻿@model MakeEvent.Models.Event
+
+@{
+    ViewData["Title"] = "Создание мероприятия";
+}
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="~/css/Account.css" asp-append-version="true" />
+</head>
+<body>
+    <h1 style="text-align: center;">Создание мероприятия</h1>
+    <h2 style="margin-left:4.5%">Создание мероприятия </h2>
+    <hr />
+    <div class="row">
+        <div class="col-md-9" style=" margin-left:5%; background-color: #D9D9D9; margin-right:55%; width:40%;">
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="mb-2 form-group">
+                    <label asp-for="Name" class="control-label"></label>
+                    <input asp-for="Name" class="form-control" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+                <div class="mb-2 form-group" hidden>
+                    <label asp-for="UserId" class="control-label"></label>
+                    <select asp-for="UserId" class="form-control" asp-items="ViewBag.UserId"></select>
+                </div>
+                <div class="mb-2 form-group">
+                    <label asp-for="Location" class="control-label"></label>
+                    <input asp-for="Location" class="form-control" />
+                    <span asp-validation-for="Location" class="text-danger"></span>
+                </div>
+                <div class="mb-2 form-group">
+                    <label asp-for="Date" class="control-label"></label>
+                    <input asp-for="Date" class="form-control" type="date"/>
+                    <span asp-validation-for="Date" class="text-danger"></span>
+                </div>
+                <div class="mb-2 form-group">
+                    <label asp-for="Time" class="control-label"></label>
+                    <input asp-for="Time" class="form-control" type="time"/>
+                    <span asp-validation-for="Time" class="text-danger"></span>
+                </div>
+                <div class="mb-2 form-group">
+                    <label asp-for="Max_Ghost" class="control-label"></label>
+                    <input asp-for="Max_Ghost" class="form-control" />
+                    <span asp-validation-for="Max_Ghost" class="text-danger"></span>
+                </div>
+                <div class="mb-2 form-group">
+                    <label asp-for="TagId" class="control-label"></label>
+                    <select asp-for="TagId" class ="form-control" asp-items="ViewBag.TagId"></select>
+                </div>
+                <div class="mb-2 form-group" hidden>
+                    <label asp-for="Status" class="control-label"></label>
+                    <input asp-for="Status" class="form-control" />
+                    <span asp-validation-for="Status" class="text-danger"></span>
+                </div>
+                <div class="mb-2 form-group">
+                    <label asp-for="Description" class="control-label"></label>
+                    <textarea asp-for="Description" class="form-control" style="resize: none; height: 12vh"></textarea>
+                    <span asp-validation-for="Description" class="text-danger"></span>
+                </div>
+                <div class="mb-2 form-group">
+                    <label asp-for="Dop_Information" class="control-label"></label>
+                    <textarea asp-for="Dop_Information" class="form-control" style="resize: none; height: 12vh"></textarea>
+                    <span asp-validation-for="Dop_Information" class="text-danger"></span>
+                </div>
+                <div class="mb-2 form-group">
+                    <input type="submit" value="Создать" class="btn btn-primary" />
+                    <a asp-action="Index" class="btn btn-secondary">Bернуться</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
