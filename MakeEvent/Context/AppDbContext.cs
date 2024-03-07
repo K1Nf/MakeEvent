@@ -18,6 +18,7 @@ namespace MakeEvent.Context
         public DbSet<UserType> userTypes { get; set; }
         public DbSet<Event_Ghost> ghosts { get; set; }
 
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Event>().HasData(

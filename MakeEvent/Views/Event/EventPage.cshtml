@@ -46,15 +46,15 @@
                     </tr>
                     <tr>
                         <td class="table_left"><strong>Гости: </strong></td>
-                        <td class="table_right">me, him, you</td>
+                        <td class="table_right"></td>
                     </tr>
                 </tbody>
             </table>
             <div class="mnge" id="meauthor">
                 <a asp-controller="Event" asp-action="Delete" asp-route-Id="@Model.Id" class="btn" >Отменить мероприятие</a>
                 <a asp-controller="Event" asp-action="Update" asp-route-Id="@Model.Id" class="btn" >Изменить мероприятие</a>
-                <a asp-route-Id="@Model.Id" class="btn" hidden>Зарегистрироваться на мероприятие</a> @* asp-controller="Event" asp-action="Register" *@
-                <a class="btn" >Посмотреть гостей</a>
+                <a asp-route-Id="@Model.Id" class="btn">Зарегистрироваться на мероприятие</a> @* asp-controller="Event" asp-action="Register" *@
+                <a class="btn" href="#" >Посмотреть гостей</a>
             </div>
 
             

@@ -22,10 +22,11 @@ namespace MakeEvent.Controllers
             return View();
         }
         
-        public IActionResult EventPage(int? Id)
+        public IActionResult EventPage(int? EventId)
         {
-            return View(FindElem(Id));
+            return View(FindElem(EventId));
         }
+        
         public IActionResult Delete(int? Id)
         {
             return View(FindElem(Id));

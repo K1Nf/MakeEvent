@@ -128,7 +128,6 @@ C:\Users\User\Desktop\Практикум ПИ\Code\MakeEvent\MakeEvent\obj\Debug
 C:\Users\User\Desktop\Практикум ПИ\Code\MakeEvent\MakeEvent\obj\Debug\net8.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
 C:\Users\User\Desktop\Практикум ПИ\Code\MakeEvent\MakeEvent\obj\Debug\net8.0\scopedcss\bundle\MakeEvent.styles.css
 C:\Users\User\Desktop\Практикум ПИ\Code\MakeEvent\MakeEvent\obj\Debug\net8.0\scopedcss\projectbundle\MakeEvent.bundle.scp.css
-C:\Users\User\Desktop\Практикум ПИ\Code\MakeEvent\MakeEvent\obj\Debug\net8.0\MakeEvent.csproj.CopyComplete
 C:\Users\User\Desktop\Практикум ПИ\Code\MakeEvent\MakeEvent\obj\Debug\net8.0\MakeEvent.dll
 C:\Users\User\Desktop\Практикум ПИ\Code\MakeEvent\MakeEvent\obj\Debug\net8.0\refint\MakeEvent.dll
 C:\Users\User\Desktop\Практикум ПИ\Code\MakeEvent\MakeEvent\obj\Debug\net8.0\MakeEvent.pdb
@@ -284,3 +283,4 @@ C:\Users\User\Desktop\Практикум ПИ\Code\MakeEvent\MakeEvent\bin\Debug
 C:\Users\User\Desktop\Практикум ПИ\Code\MakeEvent\MakeEvent\bin\Debug\net8.0\runtimes\win-x86\native\e_sqlite3.dll
 C:\Users\User\Desktop\Практикум ПИ\Code\MakeEvent\MakeEvent\bin\Debug\net8.0\Npgsql.dll
 C:\Users\User\Desktop\Практикум ПИ\Code\MakeEvent\MakeEvent\bin\Debug\net8.0\Npgsql.EntityFrameworkCore.PostgreSQL.dll
+C:\Users\User\Desktop\Практикум ПИ\Code\MakeEvent\MakeEvent\obj\Debug\net8.0\MakeEvent.csproj.Up2Date

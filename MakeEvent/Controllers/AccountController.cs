@@ -27,9 +27,18 @@ namespace MakeEvent.Controllers
             User? user = _context.users.Find(Id);
             return View(user);
         }
-        public IActionResult Account(int? id)
+        public IActionResult Account(int? Id)
         {
-            return View(FindUser(1));
+            Id = 1;
+            User? user = FindUser(Id);
+            List<Event> events = _context.events.Where(eve => eve.UserId == Id).ToList();
+
+            AccEventVM AccEv = new AccEventVM() 
+            {
+                User = user,
+                Events = events
+            };
+            return View(AccEv);
         }
 
 

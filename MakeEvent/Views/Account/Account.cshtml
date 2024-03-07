@@ -1,4 +1,4 @@
-﻿@model User
+﻿@model AccEventVM
 @{
     ViewData["Title"] = "Мой аккаунт";
 }
@@ -12,19 +12,19 @@
 </head>
 <body>
     <div class="fon">
-        <h1 style="text-align: center">@Model.Last_Name @Model.First_Name @Model.Middle_Name </h1>
+        <h1 style="text-align: center">@Model.User.Last_Name @Model.User.First_Name @Model.User.Middle_Name </h1>
         <div class="profile">
 
             <div class="profile_content">
                 <div class="profile_left">
-                    <img class="avatar" src="@Model.Image_link" />
-                    <h2> @Model.NickName (@Model.Rating)</h2>
+                    <img class="avatar" src="@Model.User.Image_link" />
+                    <h2> @Model.User.NickName (@Model.User.Rating)</h2>
 
                     <img class="loadbar" src="https://sun9-66.userapi.com/impg/SytIdr-mS1DakVdYNbNo29CeSe5hkZ3uEJR47g/BsS0ap22xsk.jpg?size=362x160&quality=96&sign=ad17e88364a390b8cac671459854221d&c_uniq_tag=Lp-PHlITX5el2BlawASHWuCGVIkeoboOpPPkMSE8JOQ&type=album" />
                     <h2> Рейтинг </h2>
                     <div class="manage">
                         <button>Поменять пароль </button>
-                        <a asp-controller="Account" asp-action="Edit" asp-route-Id="@Model.Id" class="btn">Редактировать профиль </a>
+                        <a asp-controller="Account" asp-action="Edit" asp-route-Id="@Model.User.Id" class="btn">Редактировать профиль </a>
                     </div>
                 </div>
                 
@@ -33,27 +33,27 @@
                         <tbody>
                             <tr>
                                 <td class="table_left"><strong>Телефон: </strong></td>
-                                <td class="table_right">@Model.PhoneNumber</td>
+                                <td class="table_right">@Model.User.PhoneNumber</td>
                             </tr>
                             <tr>
                                 <td class="table_left"><strong>Эл. почта: </strong></td>
-                                <td class="table_right">@Model.Email</td>
+                                <td class="table_right">@Model.User.Email</td>
                             </tr>
-                            <tr>
+                            <tr hidden>
                                 <td class="table_left"><strong>ИНН: </strong></td>
-                                <td class="table_right">@Model.INN</td>
+                                <td class="table_right">@Model.User.INN</td>
                             </tr>
                             <tr style="padding-bottom: 1em;">
                                 <td class="table_left"><strong>Город: </strong></td>
-                                <td class="table_right">@Model.City</td>
+                                <td class="table_right">@Model.User.City</td>
                             </tr>
                             <tr style="padding-bottom: 4vw;">
                                 <td class="table_left"><strong>О себе: </strong></td>
-                                <td class="table_right">@Model.Information</td>
+                                <td class="table_right">@Model.User.Information</td>
                             </tr>
                             <tr style="padding-bottom: 20%;">
                                 <td class="table_left"><strong>Интересы: </strong></td>
-                                <td class="table_right">@Model?.Tag?.Name</td>
+                                <td class="table_right">@Model?.User.Tag?.Name</td>
                             </tr>
                         </tbody>
                     </table>
@@ -78,14 +78,17 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>Запланировано</td>
-                            <td>31.12.2023 23:59</td>
-                            <td>Отметить НГ, жоска наесться, послушать Путина и лечь спать.</td>
-                            <td>
-                                <a asp-controller="Event" asp-action="EventPage" asp-route-Id="Id" class="btn">Подробнее</a>
-                            </td>
-                        </tr>
+                        @foreach (Event e in Model.Events.OrderBy(ev => ev.Status))
+                        {
+                            <tr>
+                                <td>@e.Status</td>
+                                <td>@e.Date @e.Time</td>
+                                <td>@e.Name</td>
+                                <td>
+                                   <a asp-controller="Event" asp-action="EventPage" asp-route-EventId="@e.Id" class="btn">Подробнее</a>
+                                </td>
+                            </tr>
+                        }
                     </tbody>
                 </table>
             </div>

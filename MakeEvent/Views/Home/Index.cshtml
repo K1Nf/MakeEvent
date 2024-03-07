@@ -13,43 +13,51 @@
 <body>
     <div class="fon">
         <h2>Результаты поиска</h2>
-        
+        <h2>@ViewData["tss"]</h2>
+        @* <h2>@ViewData["_httpcontext"]</h2> *@
         @{
-            foreach(var myevent in Model)
+            if(Model.Count == 0 )
             {
-                <div class="event" >
-                    <h1>@myevent.Name</h1>
-                    <div class="event_content">
-                        <div class="event_left">  @* /* @myevent.User.Image_link */ *@
-                            <img class="avatar" src="@myevent.User.Image_link" />
-                            <h2> @myevent.User.NickName (@myevent.User.Rating) </h2>
-                            @* <h2> ez @myevent.User?.Image_link </h2>*@
-                            <a class="register btn" asp-controller="Event" asp-action="EventPage" asp-route-Id="@myevent.Id">Подробнее о мероприятии</a>
-                        </div>
-                        <div class="event_right">
-                            <table>
-                                <tbody>
-                                    <tr>
-                                        <td class="table_left"><strong>Дата и время: </strong></td>
-                                        <td class="table_right">@myevent.Time @myevent.Date </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="table_left"><strong>Город: </strong></td>
-                                        <td class="table_right"> @myevent.User.City</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="table_left"><strong>Место: </strong></td>
-                                        <td class="table_right">@myevent.Location</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="table_left"><strong>Описание: </strong></td>
-                                        <td class="table_right">@myevent.Description</td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                <h3 class="text-dark" style="margin-top: 5%; text-align: center">По вашему запросу ничего не найдено</h3>
+            }
+            else
+            {
+                foreach(var myevent in Model)
+                {
+                    <div class="event" >
+                        <h1>@myevent.Name</h1>
+                        <div class="event_content">
+                            <div class="event_left">  @* /* @myevent.User.Image_link */ *@
+                                <img class="avatar" src="@myevent.User.Image_link" />
+                                <h2> @myevent.User.NickName (@myevent.User.Rating) </h2>
+                                @* <h2> ez @myevent.User?.Image_link </h2>*@
+                                <a class="register btn" asp-controller="Event" asp-action="EventPage" asp-route-EventId="@myevent.Id">Подробнее о мероприятии</a>
+                            </div>
+                            <div class="event_right">
+                                <table>
+                                    <tbody>
+                                        <tr>
+                                            <td class="table_left"><strong>Дата и время: </strong></td>
+                                            <td class="table_right">@myevent.Time @myevent.Date </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="table_left"><strong>Город: </strong></td>
+                                            <td class="table_right"> @myevent.User.City</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="table_left"><strong>Место: </strong></td>
+                                            <td class="table_right">@myevent.Location</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="table_left"><strong>Описание: </strong></td>
+                                            <td class="table_right">@myevent.Description</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
-                </div>
+                }
             }
         }
 
